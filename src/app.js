@@ -4,9 +4,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+require('dotenv').config();
+require('./database/conexion')
 
-var index = require('./routes/index');
-var usuarios = require('./routes/usuarios.routes');
+let index = require('./routes/index');
+let usuarios = require('./routes/usuarios.routes');
+let productos = require('./routes/productos.routes');
+let clientes = require('./routes/clientes.routes');
+let categorias = require('./routes/categorias.routes');
+let proveedores = require('./routes/proveedores.routes');
+let sedes = require('./routes/sedes.routes');
+let almacenes = require('./routes/almacenes.routes');
+let empleados = require('./routes/empleados.routes');
 
 var app = express();
 
@@ -23,6 +32,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/usuarios', usuarios);
+app.use('/productos', productos);
+app.use('/clientes', clientes);
+app.use('/categorias', categorias);
+app.use('/proveedores', proveedores);
+app.use('/sedes', sedes);
+app.use('/almacenes', almacenes);
+app.use('/empleados', empleados);
 
 // Middleware para manejar rutas no encontradas y devolver error 404
 app.use((req, res, next) => {
