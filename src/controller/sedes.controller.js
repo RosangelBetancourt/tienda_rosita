@@ -28,7 +28,7 @@ class Sede {
         return new Promise(async (resolve, reject) => {
             try {
                 if (!sede.nombre) {
-                    reject('Faltan propiedades escenciales: nombre')
+                    return reject('Faltan propiedades escenciales: nombre')
                 } else {
                     //validamos que el nombre no se repite
                     const existeSede = await SedesModel.findOne({
@@ -44,8 +44,6 @@ class Sede {
 
                     const nuevaSede = {
                         nombre: sede.nombre,
-                        almacenes: sede.almacenes,
-                        empleados: sede.empleados
                     }
 
                     const sedeCreada = await SedesModel.create(
