@@ -7,7 +7,7 @@ const checkAutenticacion = require('../controller/service/jwtAuth');
 router.get('/listar', 
 
 function(req, res, next){
-    roles = ["admin", "editor", "user"];
+    let roles = ["admin", "editor", "user"];
     checkAutenticacion(req, res, next, roles);
 },
 
@@ -25,7 +25,7 @@ function(req, res, next) {
 router.get('/listar/sede/:sede', 
 
 function(req, res, next){
-    roles = ["admin", "editor", "user"];
+    let roles = ["admin", "editor", "user"];
     checkAutenticacion(req, res, next, roles);
 },
 
@@ -45,7 +45,7 @@ function(req, res, next) {
 router.post('/agregar', 
 
 function(req, res, next){
-    roles = ["admin", "editor"];
+    let roles = ["admin", "editor"];
     checkAutenticacion(req, res, next, roles);
 },
 
@@ -63,7 +63,7 @@ function(req, res, next) {
 router.delete('/eliminar/:id', 
 
 function(req, res, next){
-    roles = ["admin"];
+    let roles = ["admin"];
     checkAutenticacion(req, res, next, roles);
 },
 
