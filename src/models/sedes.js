@@ -15,6 +15,10 @@ const SedesSchema = new Schema({
   empleados: {
     type: Array,
     default: []
+  },
+  proveedores: {
+    type: Array,
+    default: []
   }
 });
 

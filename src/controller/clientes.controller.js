@@ -1,7 +1,7 @@
-const ClientesModel = require('../models/sedes');
+const ClientesModel = require('../models/clientes');
 
 class Cliente {
-
+    
 }
 
 const clientesC = new Cliente();

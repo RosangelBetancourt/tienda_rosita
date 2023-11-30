@@ -149,11 +149,9 @@ class Almacen {
 
                 console.log(respuesta)
 
-                if (respuesta === true) {
-                    console.log('No estaba registrado el almacen a ninguna Sede')
+                if (respuesta != true) {
+                    await SedesModel.updateOne({ nombre: almacen.sede }, { almacenes: respuesta })
                 }
-
-                await SedesModel.updateOne({ nombre: almacen.sede }, { almacenes: respuesta })
 
                 return resolve({
                     ok: true,

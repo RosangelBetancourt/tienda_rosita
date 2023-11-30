@@ -85,10 +85,10 @@ class Sede {
                 // Verificamos si se puede eliminar la Sede
                 const sede = await SedesModel.findOne({ _id: id })
 
-                if (sede.almacenes.length > 0 || sede.empleados.length > 0) {
+                if (sede.almacenes.length > 0 || sede.empleados.length > 0 || sede.proveedores.length > 0) {
                     return reject({
                         ok: false,
-                        mensaje: 'No se puede eliminar la Sede porque no debeb tener Empleados ni Almacenes Registrados',
+                        mensaje: 'No se puede eliminar la Sede porque no debeb tener Empleados, Almacenes ni Proveedores Registrados',
                     })
                 }
 
